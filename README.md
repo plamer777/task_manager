@@ -39,3 +39,4 @@ Example of .env file:
     POSTGRES_PASSWORD=postgres  # postgres db password
     POSTGRES_USER=postgres  # postgres db username
     POSTGRES_HOST=localhost
+
