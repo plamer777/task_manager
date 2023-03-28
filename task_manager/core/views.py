@@ -3,4 +3,4 @@ from django.shortcuts import render
 
 
 def main_page(request):
-    return JsonResponse({'status': 'ok'}, status=200)
+    return JsonResponse({"status": "ok"}, status=200)
