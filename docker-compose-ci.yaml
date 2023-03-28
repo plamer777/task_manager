@@ -37,7 +37,7 @@ services:
     restart: always
 
     healthcheck:
-      test: ['CMD-SHELL', 'pg_isready -U $POSTGRES_NAME']
+      test: ['CMD-SHELL', 'pg_isready --username=$POSTGRES_USER -d $POSTGRES_NAME']
       interval: 5s
       timeout: 5s
       retries: 5
