@@ -1,19 +1,19 @@
-version: "3.9"
+version: "3.8"
 services:
   front:
-    image: $DOCKER_USERNAME/diploma:front-$GITHUB_RUN_ID
+    image: $DOCKER_USERNAME/diploma:front-4545915370
     depends_on:
       - api
     ports:
       - '80:80'
   api:
     image: $DOCKER_USERNAME/diploma:api-$GITHUB_RUN_ID
-    ports:
-      - '8000:8000'
+    expose:
+      - 8000
     depends_on:
-      - migrations
-    volumes:
-      - .env:/task_manager/.env
+      migrations:
+        condition: service_completed_successfully
+    env_file: .env
 
   migrations:
     image: $DOCKER_USERNAME/diploma:api-$GITHUB_RUN_ID
@@ -22,13 +22,12 @@ services:
     depends_on:
       db:
         condition: service_healthy
-    volumes:
-      - .env:/task_manager/.env
+    env_file: .env
 
   db:
     image: postgres:alpine
-    ports:
-      - "5432:5432"
+    expose:
+      - 5432
     environment:
       POSTGRES_DB: $POSTGRES_NAME
       POSTGRES_PASSWORD: $POSTGRES_PASSWORD
