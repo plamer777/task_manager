@@ -6,7 +6,6 @@ services:
       - api
     ports:
       - '80:80'
-      -
   api:
     image: $DOCKER_USERNAME/diploma:api-$GITHUB_RUN_ID
     ports:
