@@ -9,8 +9,11 @@ https://docs.djangoproject.com/en/4.1/howto/deployment/wsgi/
 
 import os
 
+import dotenv
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'task_manager.settings')
+dotenv.load_dotenv()
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "task_manager.settings")
 
 application = get_wsgi_application()

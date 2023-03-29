@@ -15,20 +15,29 @@ There are another functions cost to mention:
  - Django 4.1.7
  - DRF 3.14.0
  - Poetry 1.4.1
+ - Gunicorn 20.1.0
+ - Nginx-alpine
+ - Docker
+ - Docker-compose
+---
 
 **How to start the project:**
+The project prepared for auto-deploying. So there two ways to start the project:
 
+1. Local deployment:
  - Clone repository
- - Install Python 3.10 or higher
- - Install poetry by using command `pip install poetry`
- - Activate poetry by the execution `poetry init` and follow the steps
- - Install dependencies - `poetry install`
-- Prepare .env file(an example provided below)  
-- Change environment variables in the docker-compose.yaml file if necessary use the variables like in the .env file
-- Run database `sudo docker-compose up -d`  
-- Execute `./manage.py makemigrations` command
-- Execute `./manage.py migrate`
-- Run application by executing `./manage.py runserver`
+ - Install docker and docker-compose packages by the command `sudo apt install docker docker-compose`
+ - Create .env file using an example provided below
+ - Prepare docker-compose.yaml file by using docker-compose.yaml or docker-compose-ci.yaml files included in the project
+ - Start the app by using `sudo docker-compose up -d` command
+ - Main page should be available by the ip 0.0.0.0:your_port
+
+2. VPS deployment: 
+ - Clone repository
+ - Create environment variables in the 'secrets' section of your repository(all names are in the docker-compose-ci.yaml, build_deploy.yaml and .env-ci files)
+ - Create new repository on the GitHub and add its url to remotes
+ - Push project to your repository
+ - The project should be deployed authentically if all variables are set correctly 
 
 ---
 Example of .env file:
@@ -39,4 +48,3 @@ Example of .env file:
     POSTGRES_PASSWORD=postgres  # postgres db password
     POSTGRES_USER=postgres  # postgres db username
     POSTGRES_HOST=localhost
-
