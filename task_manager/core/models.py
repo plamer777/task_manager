@@ -9,7 +9,6 @@ from django.utils.translation import gettext_lazy as _
 
 class User(AbstractUser):
     """User model serves to work with users"""
-
     age = models.PositiveIntegerField(
         null=True,
         blank=True,
