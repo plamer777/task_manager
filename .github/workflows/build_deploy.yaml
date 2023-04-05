@@ -33,6 +33,9 @@ jobs:
       POSTGRES_USER: ${{secrets.POSTGRES_USER}}
       VK_SECRET_KEY: ${{secrets.VK_SECRET_KEY}}
       VK_APP_ID: ${{secrets.VK_APP_ID}}
+      DJANGO_USERNAME: ${{secrets.DJANGO_USERNAME}}
+      DJANGO_PASSWORD: ${{secrets.DJANGO_PASSWORD}}
+      DJANGO_EMAIL: ${{secrets.DJANGO_EMAIL}}
     steps:
       - name: clone repository
         uses: actions/checkout@v2
