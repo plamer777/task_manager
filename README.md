@@ -2,6 +2,7 @@
 The application provides functionality to manage your tasks. You can create new task, set its status, category and priority. You also can change your task's description, priority or status. And as always every task can be removed from list, it won't be deleted actually but marked as 'archival'.
 
 There are another functions cost to mention:
+ - Registration and login by the username and password or through VK social network
  - Searching tasks by its title
  - Filtering by category, status, year and priority
  - Saving into CSV/JSON file
@@ -19,6 +20,7 @@ There are another functions cost to mention:
  - Nginx-alpine
  - Docker
  - Docker-compose
+ - Social-auth-app-django 5.2.0
 ---
 
 **How to start the project:**
@@ -48,3 +50,9 @@ Example of .env file:
     POSTGRES_PASSWORD=postgres  # postgres db password
     POSTGRES_USER=postgres  # postgres db username
     POSTGRES_HOST=localhost
+    VK_APP_ID=YOUR_VK_APP_ID
+    VK_SECRET_KEY=YOUR_VK_SECRET_KEY
+
+To get VK_APP_ID and VK_SECRET_KEY you need to create a VK app. 
+I can recommend to use the official documentation: 
+https://dev.vk.com/mini-apps/getting-started

@@ -1,5 +1,9 @@
+"""This file contains urls for core app"""
 from django.urls import path
+from rest_framework.templatetags.rest_framework import data
+
 from core import views
+
 # -----------------------------------------------------------------------
 
 urlpatterns = [
@@ -7,5 +11,4 @@ urlpatterns = [
     path("signup", views.UserRegistrationView.as_view()),
     path("profile", views.UserUpdateRetrieveView.as_view()),
     path("update_password", views.UserUpdatePasswordView.as_view()),
-    path("api/", views.main_page),
 ]
