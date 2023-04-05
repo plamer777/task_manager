@@ -111,8 +111,8 @@ SOCIAL_AUTH_VK_OAUTH2_SCOPE = ["email"]
 
 SOCIAL_AUTH_VK_OAUTH2_KEY = environment.get("VK_APP_ID")
 SOCIAL_AUTH_VK_OAUTH2_SECRET = environment.get("VK_SECRET_KEY")
-SOCIAL_AUTH_LOGIN_REDIRECT_URL = "http://127.0.0.1:80/logged-in/"
-SOCIAL_AUTH_LOGIN_ERROR_URL = "http://127.0.0.1:80/login-error/"
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = "http://skyprogramm.site:80/logged-in/"
+SOCIAL_AUTH_LOGIN_ERROR_URL = "http://skyprogramm.site:80/login-error/"
 SOCIAL_AUTH_URL_NAMESPACE = "api"
 
 # Password validation
