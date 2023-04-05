@@ -43,7 +43,7 @@ jobs:
           cat .env-ci | envsubst > .env
           rm .env-ci
           cp ./deploy/nginx.conf ./
-          cp .task_manager/static ./
+          cp ./task_manager/static ./
       - name: copy files
         uses: appleboy/scp-action@master
         with:
