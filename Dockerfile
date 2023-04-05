@@ -5,6 +5,7 @@ COPY poetry.lock .
 COPY pyproject.toml .
 RUN poetry config virtualenvs.create false
 RUN poetry install --without develop
+RUN ./manage.py collectstatic
 COPY task_manager/ .
 EXPOSE 8000
 CMD gunicorn -b 0.0.0.0:8000 task_manager.wsgi --workers=2 --threads=2
