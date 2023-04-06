@@ -22,7 +22,7 @@ services:
   migrations:
     image: $DOCKER_USERNAME/diploma:api-$GITHUB_RUN_ID
     command: >
-      sh -c 'poetry run python3 manage.py makemigrations && poetry run python3 manage.py migrate && python manage.py createsuperuser --no-input'
+      sh -c 'poetry run python3 manage.py makemigrations && poetry run python3 manage.py migrate'
     depends_on:
       db:
         condition: service_healthy
