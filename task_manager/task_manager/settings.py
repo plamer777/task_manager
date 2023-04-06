@@ -104,6 +104,7 @@ SOCIAL_AUTH_LOGIN_REDIRECT_URL = "http://skyprogramm.site/logged-in/"
 SOCIAL_AUTH_LOGIN_ERROR_URL = "http://skyprogramm.site/login-error/"
 SOCIAL_AUTH_URL_NAMESPACE = "api"
 
+
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
