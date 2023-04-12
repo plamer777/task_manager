@@ -43,6 +43,8 @@ class UserLoginView(CreateAPIView):
     def create(self, request, *args, **kwargs) -> Response:
         """The method serves to authenticate the user and to save his data
         into current session"""
+        serializer = UserLoginSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
         username = request.data.get("username")
         password = request.data.get("password")
         user = authenticate(request, username=username, password=password)
@@ -65,12 +67,8 @@ class UserUpdateRetrieveView(RetrieveUpdateDestroyAPIView):
     serializer_class = UserUpdateRetrieveSerializer
     permission_classes = [IsAuthenticated]
 
-    def get_queryset(self) -> User:
-        """This rewritten queryset allows to use user pk without pk
-        parameter in the route"""
-        query_set = User.objects.filter(pk=self.request.user.pk)
-        self.kwargs["pk"] = self.request.user.pk
-        return query_set
+    def get_object(self):
+        return self.request.user
 
     @method_decorator(ensure_csrf_cookie)
     def retrieve(self, request, *args, **kwargs):
@@ -96,9 +94,5 @@ class UserUpdatePasswordView(UpdateAPIView):
     serializer_class = UserUpdatePasswordSerializer
     permission_classes = [IsAuthenticated]
 
-    def get_queryset(self) -> User:
-        """This queryset uses the pk of the user to get his model"""
-        queryset = User.objects.filter(pk=self.request.user.pk)
-        self.kwargs["pk"] = self.request.user.pk
-
-        return queryset
+    def get_object(self):
+        return self.request.user
