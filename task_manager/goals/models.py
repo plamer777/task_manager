@@ -111,7 +111,7 @@ class Goal(ModelDateMixin):
         verbose_name_plural = _("Goals")
 
 
-class Comment(models.Model):
+class Comment(ModelDateMixin):
     """This class represents a comment model"""
     goal = models.ForeignKey(
         Goal,
