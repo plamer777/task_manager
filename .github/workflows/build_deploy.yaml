@@ -1,0 +1,75 @@
+name: diploma
+on:
+  push:
+    branches:
+      - main
+      - develop36
+jobs:
+  build_images:
+    runs-on: ubuntu-latest
+    env:
+      POSTGRES_NAME: ${{secrets.POSTGRES_NAME}}
+      POSTGRES_PASSWORD: ${{secrets.POSTGRES_PASSWORD}}
+      POSTGRES_USER: ${{secrets.POSTGRES_USER}}
+
+    steps:
+      - name: clone git repo
+        uses: actions/checkout@v2
+      - name: build api image
+        run: |          
+          docker build -t ${{secrets.DOCKER_USERNAME}}/diploma:api-$GITHUB_RUN_ID .
+      - name: docker login
+        run: echo ${{secrets.DOCKER_PASS_TOKEN}} | docker login -u ${{secrets.DOCKER_USERNAME}} --password-stdin
+      - name: docker push images
+        run: docker push ${{secrets.DOCKER_USERNAME}}/diploma:api-$GITHUB_RUN_ID
+
+  deploy_application:
+    runs-on: ubuntu-latest
+    needs: build_images
+    env:
+      SECRET_KEY: ${{secrets.DJANGO_SECRET}}
+      DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
+      POSTGRES_NAME: ${{secrets.POSTGRES_NAME}}
+      POSTGRES_PASSWORD: ${{secrets.POSTGRES_PASSWORD}}
+      POSTGRES_USER: ${{secrets.POSTGRES_USER}}
+      VK_SECRET_KEY: ${{secrets.VK_SECRET_KEY}}
+      VK_APP_ID: ${{secrets.VK_APP_ID}}
+      DJANGO_USERNAME: ${{secrets.DJANGO_USERNAME}}
+      DJANGO_PASSWORD: ${{secrets.DJANGO_PASSWORD}}
+      DJANGO_EMAIL: ${{secrets.DJANGO_EMAIL}}
+    steps:
+      - name: clone repository
+        uses: actions/checkout@v2
+      - name: prepare docker-compose and env files
+        run: | 
+          cat docker-compose-ci.yaml | envsubst > docker-compose.yaml
+          rm docker-compose-ci.yaml
+          cat .env-ci | envsubst > .env
+          rm .env-ci
+          cp ./deploy/nginx.conf ./
+      - name: copy files
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{secrets.SERVER_IP}}
+          username: ${{secrets.SERVER_USER}}
+          password: ${{secrets.SERVER_PASS}}
+          source: 'docker-compose.yaml,.env,nginx.conf'
+          target: '/home/task_manager'
+      - name: start app
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{secrets.SERVER_IP}}
+          username: ${{secrets.SERVER_USER}}
+          password: ${{secrets.SERVER_PASS}}
+          script: |
+            cd /home/task_manager
+            echo ${{secrets.SERVER_PASS}} | sudo -S docker-compose up -d
+      - name: remove old images
+        if: always()
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{secrets.SERVER_IP}}
+          username: ${{secrets.SERVER_USER}}
+          password: ${{secrets.SERVER_PASS}}
+          script: |            
+            echo ${{secrets.SERVER_PASS}} | sudo -S docker system prune -a -f
