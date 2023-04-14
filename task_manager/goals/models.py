@@ -3,11 +3,13 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from core.models import User
+
 # --------------------------------------------------------------------------
 
 
 class Status(models.IntegerChoices):
     """This class represents available statuses for any Goal model"""
+
     to_do = 1, _("To do")
     in_progress = 2, _("In progress")
     done = 3, _("Done")
@@ -16,6 +18,7 @@ class Status(models.IntegerChoices):
 
 class Priority(models.IntegerChoices):
     """This class represents available priorities for Goal models"""
+
     low = 1, _("Low")
     medium = 2, _("Medium")
     high = 3, _("High")
@@ -25,12 +28,17 @@ class Priority(models.IntegerChoices):
 class ModelDateMixin(models.Model):
     """This is an abstract mixin class providing a logic to work with fields
     common for all models"""
-    created = models.DateTimeField(
+
+    created = models.DateField(
         verbose_name=_("Create date"),
+        null=True,
+        blank=True,
     )
 
-    updated = models.DateTimeField(
+    updated = models.DateField(
         verbose_name=_("Last updated"),
+        null=True,
+        blank=True,
     )
 
     class Meta:
@@ -39,27 +47,22 @@ class ModelDateMixin(models.Model):
     def save(self, *args, **kwargs):
         """This method serves to set up create and update dates"""
         if not self.id:
-            self.created = timezone.now()
-        self.updated = timezone.now()
+            self.created = timezone.now().date()
+        self.updated = timezone.now().date()
 
         return super().save(*args, **kwargs)
 
 
 class Category(ModelDateMixin):
     """This class represents a category model"""
-    title = models.CharField(
-        max_length=50,
-        verbose_name=_("Category")
-    )
+
+    title = models.CharField(max_length=50, verbose_name=_("Category"))
     user = models.ForeignKey(
         User,
         on_delete=models.PROTECT,
         verbose_name=_("Author"),
     )
-    is_deleted = models.BooleanField(
-        default=False,
-        verbose_name=_("Deleted")
-    )
+    is_deleted = models.BooleanField(default=False, verbose_name=_("Deleted"))
 
     class Meta:
         verbose_name = _("Category")
@@ -68,14 +71,17 @@ class Category(ModelDateMixin):
 
 class Goal(ModelDateMixin):
     """This class represents a goal model"""
+
     category = models.ForeignKey(
         Category,
         on_delete=models.CASCADE,
         verbose_name=_("Goal category"),
     )
 
-    due_date = models.DateTimeField(
+    due_date = models.DateField(
         verbose_name=_("Due date"),
+        null=True,
+        blank=True,
     )
 
     status = models.PositiveSmallIntegerField(
@@ -101,9 +107,10 @@ class Goal(ModelDateMixin):
         max_length=50,
     )
 
-    description = models.CharField(
+    description = models.TextField(
         verbose_name=_("Description"),
-        max_length=500,
+        null=True,
+        blank=True,
     )
 
     class Meta:
@@ -113,6 +120,7 @@ class Goal(ModelDateMixin):
 
 class Comment(ModelDateMixin):
     """This class represents a comment model"""
+
     goal = models.ForeignKey(
         Goal,
         on_delete=models.CASCADE,
@@ -125,13 +133,12 @@ class Comment(ModelDateMixin):
         verbose_name=_("Author"),
     )
 
-    text = models.CharField(
-        max_length=250,
+    text = models.TextField(
         verbose_name=_("Text"),
-
+        null=True,
+        blank=True,
     )
 
     class Meta:
         verbose_name = _("Comment")
         verbose_name_plural = _("Comments")
-

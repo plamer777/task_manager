@@ -12,15 +12,12 @@ class GoalListFilter(FilterSet):
     """The GoalListFilter class provides a way to filter the list of goals.
     It allows you to filter entities by the due date, priority, status and
     category"""
-    filter_overrides = {
-        models.DateTimeField: {'filter_class': IsoDateTimeFilter}
-    }
 
     class Meta:
         model = Goal
         fields = {
-            'due_date': ('lte', 'gte'),
-            'priority': ('exact', 'in'),
-            'status': ('exact', 'in'),
-            'category': ('exact', 'in'),
+            "due_date": ("lte", "gte"),
+            "priority": ("in",),
+            "status": ("in",),
+            "category": ("in",),
         }
