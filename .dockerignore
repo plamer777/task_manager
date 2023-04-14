@@ -1,5 +1,6 @@
 .github
 deploy
+.gitignore
 .env
 .env-ci
 docker-compose-ci.yaml
