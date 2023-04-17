@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "social_django",
+    "django_filters",
     "core",
+    "goals",
 ]
 
 MIDDLEWARE = [
@@ -125,7 +127,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-REST_FRAMEWORK = {}
+REST_FRAMEWORK = {
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination"
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/

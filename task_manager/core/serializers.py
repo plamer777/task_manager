@@ -14,8 +14,7 @@ class UserRegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(required=True)
     password_repeat = serializers.CharField(write_only=True)
     username = serializers.CharField(
-        required=True,
-        validators=[UniqueValidator(queryset=User.objects.all())]
+        required=True, validators=[UniqueValidator(queryset=User.objects.all())]
     )
 
     def create(self, validated_data) -> User:
@@ -57,7 +56,13 @@ class UserLoginSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ("username", "password")
+        fields = (
+            "username",
+            "password",
+            "first_name",
+            "last_name",
+            "email",
+        )
 
 
 class UserUpdateRetrieveSerializer(serializers.ModelSerializer):
@@ -71,20 +76,9 @@ class UserUpdateRetrieveSerializer(serializers.ModelSerializer):
 class UserUpdatePasswordSerializer(serializers.ModelSerializer):
     """The serializer serves to change current user's password"""
 
-    old_password = serializers.CharField(
-        max_length=30,
-        write_only=True,
-        required=True
-    )
-    new_password = serializers.CharField(
-        max_length=30,
-        write_only=True,
-        required=True
-    )
-    password = serializers.CharField(
-        max_length=30,
-        required=False
-    )
+    old_password = serializers.CharField(max_length=30, write_only=True, required=True)
+    new_password = serializers.CharField(max_length=30, write_only=True, required=True)
+    password = serializers.CharField(max_length=30, required=False)
 
     class Meta:
         model = User
@@ -103,10 +97,7 @@ class UserUpdatePasswordSerializer(serializers.ModelSerializer):
         request = self.context.get("request")
         user = request.user
 
-        found_user = authenticate(
-            username=user.username,
-            password=old_password
-        )
+        found_user = authenticate(username=user.username, password=old_password)
 
         if not found_user:
             raise serializers.ValidationError(

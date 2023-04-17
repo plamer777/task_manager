@@ -1,12 +1,16 @@
 # The TaskManager
-The application provides functionality to manage your tasks. You can create new task, set its status, category and priority. You also can change your task's description, priority or status. And as always every task can be removed from list, it won't be deleted actually but marked as 'archival'.
+The application provides functionality to manage your tasks. 
+You can create new task, set its status, category and priority. Every category can be edited or removed. If you remove
+a category then all tasks in it will be marked as archived and can't be shown anymore.
+You also can change your task's description, priority or status. 
+And as always every category task can be removed from list, they won't be deleted actually but marked as 'archival'.
 
 There are another functions cost to mention:
  - Registration and login by the username and password or through VK social network
  - Searching tasks by its title
- - Filtering by category, status, year and priority
+ - Filtering by category, status, deadline and priority
  - Saving into CSV/JSON file
- - Creating notes for tasks
+ - Creating, editing, removing and sorting comments for tasks
  - All functions also available in the mobile app
 ---
 
@@ -21,6 +25,7 @@ There are another functions cost to mention:
  - Docker
  - Docker-compose
  - Social-auth-app-django 5.2.0
+ - Django-filter 23.1
 ---
 
 **How to start the project:**
@@ -28,11 +33,11 @@ The project prepared for auto-deploying. So there two ways to start the project:
 
 1. Local deployment:
  - Clone repository
- - Install docker and docker-compose packages by the command `sudo apt install docker docker-compose`
+ - Install docker and docker-compose packages by the command `sudo apt install docker.io docker-compose`
  - Create .env file using an example provided below
  - Prepare docker-compose.yaml file by using docker-compose.yaml or docker-compose-ci.yaml files included in the project
  - Start the app by using `sudo docker-compose up -d` command
- - Main page should be available by the ip 0.0.0.0:your_port
+ - Main page should be available by the ip 127.0.0.1 or localhost (if you user existing settings)
 
 2. VPS deployment: 
  - Clone repository
@@ -40,7 +45,7 @@ The project prepared for auto-deploying. So there two ways to start the project:
  - Create new repository on the GitHub and add its url to remotes
  - Push project to your repository
  - The project should be deployed authentically if all variables are set correctly 
-
+ - You can open main page by entering ip address of your server or domain used for it
 ---
 Example of .env file:
 
@@ -49,7 +54,7 @@ Example of .env file:
     POSTGRES_DB=postgres  # postgres db name
     POSTGRES_PASSWORD=postgres  # postgres db password
     POSTGRES_USER=postgres  # postgres db username
-    POSTGRES_HOST=localhost
+    POSTGRES_HOST=db
     VK_APP_ID=YOUR_VK_APP_ID
     VK_SECRET_KEY=YOUR_VK_SECRET_KEY
 
