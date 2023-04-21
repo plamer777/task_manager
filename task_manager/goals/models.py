@@ -25,6 +25,13 @@ class Priority(models.IntegerChoices):
     critical = 4, _("Critical")
 
 
+class Roles(models.IntegerChoices):
+    """This class represents available roles for Participant models"""
+    owner = 1, _("Owner")
+    writer = 2, _("Writer")
+    reader = 3, _("Reader")
+
+
 class ModelDateMixin(models.Model):
     """This is an abstract mixin class providing a logic to work with fields
     common for all models"""
@@ -53,20 +60,89 @@ class ModelDateMixin(models.Model):
         return super().save(*args, **kwargs)
 
 
+class Board(ModelDateMixin):
+    """This class represents a board model"""
+    title = models.CharField(
+        max_length=50,
+        verbose_name=_("Title"),
+    )
+
+    is_deleted = models.BooleanField(
+        verbose_name=_('Is deleted'),
+        null=True,
+        blank=True,
+    )
+
+    class Meta:
+        verbose_name = _("Board")
+        verbose_name_plural = _("Boards")
+
+    def __str__(self):
+        return self.title
+
+
+class Participant(ModelDateMixin):
+    """This class represents a participant model"""
+    role = models.SmallIntegerField(
+        choices=Roles.choices,
+        verbose_name=_("Role"),
+        default=Roles.owner,
+    )
+
+    user = models.ForeignKey(
+        User,
+        on_delete=models.PROTECT,
+        verbose_name=_("User"),
+        related_name='participants',
+    )
+
+    board = models.ForeignKey(
+        Board,
+        on_delete=models.PROTECT,
+        verbose_name=_("Board"),
+        related_name='participants',
+        null=True,
+        blank=True,
+    )
+
+    class Meta:
+        verbose_name = _("Participant")
+        verbose_name_plural = _("Participants")
+        unique_together = ('board', 'user')
+
+    def __str__(self):
+        return self.role
+
+
 class Category(ModelDateMixin):
     """This class represents a category model"""
 
-    title = models.CharField(max_length=50, verbose_name=_("Category"))
+    title = models.CharField(
+        max_length=50,
+        verbose_name=_("Category")
+    )
     user = models.ForeignKey(
         User,
         on_delete=models.PROTECT,
         verbose_name=_("Author"),
     )
-    is_deleted = models.BooleanField(default=False, verbose_name=_("Deleted"))
+    is_deleted = models.BooleanField(
+        default=False,
+        verbose_name=_("Deleted")
+    )
+    board = models.ForeignKey(
+        Board,
+        on_delete=models.PROTECT,
+        verbose_name=_("Board"),
+        related_name='categories',
+    )
 
     class Meta:
         verbose_name = _("Category")
         verbose_name_plural = _("Categories")
+
+    def __str__(self):
+        return self.title
 
 
 class Goal(ModelDateMixin):
@@ -117,6 +193,9 @@ class Goal(ModelDateMixin):
         verbose_name = _("Goal")
         verbose_name_plural = _("Goals")
 
+    def __str__(self):
+        return self.title
+
 
 class Comment(ModelDateMixin):
     """This class represents a comment model"""
@@ -142,3 +221,6 @@ class Comment(ModelDateMixin):
     class Meta:
         verbose_name = _("Comment")
         verbose_name_plural = _("Comments")
+
+    def __str__(self):
+        return self.text

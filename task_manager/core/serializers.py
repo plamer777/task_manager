@@ -76,9 +76,12 @@ class UserUpdateRetrieveSerializer(serializers.ModelSerializer):
 class UserUpdatePasswordSerializer(serializers.ModelSerializer):
     """The serializer serves to change current user's password"""
 
-    old_password = serializers.CharField(max_length=30, write_only=True, required=True)
-    new_password = serializers.CharField(max_length=30, write_only=True, required=True)
-    password = serializers.CharField(max_length=30, required=False)
+    old_password = serializers.CharField(
+        max_length=30, write_only=True, required=True)
+    new_password = serializers.CharField(
+        max_length=30, write_only=True, required=True)
+    password = serializers.CharField(
+        max_length=30, required=False)
 
     class Meta:
         model = User

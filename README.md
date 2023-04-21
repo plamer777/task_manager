@@ -2,13 +2,18 @@
 The application provides functionality to manage your tasks. 
 You can create new task, set its status, category and priority. Every category can be edited or removed. If you remove
 a category then all tasks in it will be marked as archived and can't be shown anymore.
-You also can change your task's description, priority or status. 
+You also can change your task's description, priority or status. All categories have its own boards to share with 
+any registered user. All users you share boards with have one of two available roles are reader and writer, all roles
+can be changed at any time.
 And as always every category task can be removed from list, they won't be deleted actually but marked as 'archival'.
 
 There are another functions cost to mention:
  - Registration and login by the username and password or through VK social network
  - Searching tasks by its title
- - Filtering by category, status, deadline and priority
+ - Filtering tasks by category, status, deadline and priority
+ - Filtering category by board
+ - Only owner or editor can edit a board and categories with tasks into it
+ - Board's owner can add, remove participant or change his role
  - Saving into CSV/JSON file
  - Creating, editing, removing and sorting comments for tasks
  - All functions also available in the mobile app
