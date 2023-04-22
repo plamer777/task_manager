@@ -36,18 +36,18 @@ class CommentAdmin(admin.ModelAdmin):
 
 @admin.register(Participant)
 class ParticipantAdmin(admin.ModelAdmin):
-    list_display = ('user', 'board', 'created', 'updated')
-    search_fields = ('user', 'board')
-    list_filter = ('user', 'board')
-    readonly_fields = ('created', 'updated')
+    list_display = ("user", "board", "created", "updated")
+    search_fields = ("user", "board")
+    list_filter = ("user", "board")
+    readonly_fields = ("created", "updated")
 
 
 @admin.register(Board)
 class BoardAdmin(admin.ModelAdmin):
-    list_display = ('title', 'is_deleted', 'created', 'updated')
-    search_fields = ('title',)
-    list_filter = ('is_deleted',)
-    readonly_fields = ('created', 'updated')
+    list_display = ("title", "is_deleted", "created", "updated")
+    search_fields = ("title",)
+    list_filter = ("is_deleted",)
+    readonly_fields = ("created", "updated")
 
 
 admin.site.register(Category, CategoryAdmin)

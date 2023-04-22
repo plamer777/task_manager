@@ -5,16 +5,16 @@ from django.utils import timezone
 
 
 def create_objects(apps, schema_editor):
-    User = apps.get_model('core', 'User')
-    Category = apps.get_model('goals', 'Category')
-    Board = apps.get_model('goals', 'Board')
-    Participant = apps.get_model('goals', 'Participant')
+    User = apps.get_model("core", "User")
+    Category = apps.get_model("goals", "Category")
+    Board = apps.get_model("goals", "Board")
+    Participant = apps.get_model("goals", "Participant")
 
     with transaction.atomic():
         now_date = timezone.now().date()
         for user in User.objects.all():
             new_board = Board.objects.create(
-                title='My purposes',
+                title="My purposes",
                 created=now_date,
                 updated=now_date,
                 is_deleted=False,
@@ -38,6 +38,4 @@ class Migration(migrations.Migration):
         ("goals", "0002_board_category_board_participant"),
     ]
 
-    operations = [
-        migrations.RunPython(create_objects)
-    ]
+    operations = [migrations.RunPython(create_objects)]

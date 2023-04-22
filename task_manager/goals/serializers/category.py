@@ -26,9 +26,7 @@ class CategorySerializer(serializers.ModelSerializer):
     models"""
 
     user = UserUpdateRetrieveSerializer(read_only=True)
-    board = serializers.PrimaryKeyRelatedField(
-        read_only=True
-    )
+    board = serializers.PrimaryKeyRelatedField(read_only=True)
 
     class Meta:
         model = Category

@@ -11,29 +11,25 @@ from goals.models import Board, Participant, Roles
 class ParticipantSerializer(serializers.ModelSerializer):
     """The ParticipantSerializer class serves to serialize and deserialize
     participant models"""
-    role = serializers.ChoiceField(
-        required=True,
-        choices=Roles.choices
-    )
+
+    role = serializers.ChoiceField(required=True, choices=Participant.editable_roles)
 
     user = serializers.SlugRelatedField(
-        slug_field='username',
-        queryset=User.objects.all()
+        slug_field="username", queryset=User.objects.all()
     )
 
     board = serializers.PrimaryKeyRelatedField(
-        required=True,
         read_only=True,
     )
 
     class Meta:
         model = Participant
-        fields = '__all__'
+        fields = "__all__"
         real_only_fields = (
-            'id',
-            'created',
-            'updated',
-            'board',
+            "id",
+            "created",
+            "updated",
+            "board",
         )
 
 
@@ -42,15 +38,15 @@ class BoardCreateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Board
-        fields = '__all__'
+        fields = "__all__"
         read_only_fields = (
-            'id',
-            'created',
-            'updated',
+            "id",
+            "created",
+            "updated",
         )
 
     def create(self, validated_data) -> Board:
-        user = self.context.get('request').user
+        user = self.context.get("request").user
         with transaction.atomic():
             board = Board.objects.create(**validated_data)
             board.is_deleted = False
@@ -65,24 +61,26 @@ class BoardCreateSerializer(serializers.ModelSerializer):
 class BoardSerializer(serializers.ModelSerializer):
     """The BoardSerializer class serves to retrieve, update or delete a
     single board"""
+
     participants = ParticipantSerializer(many=True)
 
     class Meta:
         model = Board
-        fields = '__all__'
+        fields = "__all__"
         read_only_fields = (
-            'id',
-            'created',
-            'updated',
+            "id",
+            "created",
+            "updated",
         )
 
     def update(self, instance: Board, validated_data) -> Board:
-        user = self.context.get('request').user
+        user = self.context.get("request").user
         new_participants = {
-            participant['user'].id: participant
-            for participant in validated_data.pop('participants')
-            if participant['user'] != user
+            participant["user"].id: participant
+            for participant in validated_data.pop("participants")
+            if participant["user"] != user
         }
+
         old_participants = instance.participants.exclude(user=user)
 
         with transaction.atomic():
@@ -91,15 +89,17 @@ class BoardSerializer(serializers.ModelSerializer):
                     old_participant.delete()
 
                 else:
-                    new_role = new_participants[old_participant.user.id]['role']
+                    new_role = new_participants[old_participant.user.id]["role"]
                     if old_participant.role != new_role:
                         old_participant.role = new_role
                         old_participant.save()
                     del new_participants[old_participant.user.id]
 
-            [Participant.objects.create(board=instance, **data)
-             for data in new_participants.values()]
-            instance.title = validated_data.get('title')
+            [
+                Participant.objects.create(board=instance, **data)
+                for data in new_participants.values()
+            ]
+            instance.title = validated_data.get("title")
             instance.save()
 
         return instance
@@ -107,6 +107,7 @@ class BoardSerializer(serializers.ModelSerializer):
 
 class BoardListSerializer(serializers.ModelSerializer):
     """The BoardListSerializer class serves to get a list of boards"""
+
     class Meta:
         model = Board
-        fields = '__all__'
+        fields = "__all__"

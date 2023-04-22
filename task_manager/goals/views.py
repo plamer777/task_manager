@@ -12,9 +12,15 @@ from rest_framework.permissions import IsAuthenticated
 from goals.filters import GoalListFilter
 from goals.models import Category, Goal, Comment, Status, Board
 from goals import serializers
-from goals.permissions import BoardPermission, CategoryPermission, \
-    CategoryCreatePermission, GoalPermission, GoalCreatePermission, \
-    CommentCreatePermission, CommentPermission
+from goals.permissions import (
+    BoardPermission,
+    CategoryPermission,
+    CategoryCreatePermission,
+    GoalPermission,
+    GoalCreatePermission,
+    CommentCreatePermission,
+    CommentPermission,
+)
 
 # -------------------------------------------------------------------------
 
@@ -26,9 +32,8 @@ class CategoryCreateView(CreateAPIView):
     serializer_class = serializers.CreateCategorySerializer
 
     def get_queryset(self):
-
-        return Category.objects.select_related('board').filter(
-            board=self.request.data.get('board')
+        return Category.objects.select_related("board").filter(
+            board=self.request.data.get("board")
         )
 
 
@@ -44,8 +49,9 @@ class CategoryListView(ListAPIView):
     search_fields = ["title"]
 
     def get_queryset(self):
-        return Category.objects.select_related('board').filter(
-            board__participants__user=self.request.user, is_deleted=False,
+        return Category.objects.select_related("board").filter(
+            board__participants__user=self.request.user,
+            is_deleted=False,
         )
 
 
@@ -56,8 +62,9 @@ class CategoryUpdateRetrieveDeleteView(RetrieveUpdateDestroyAPIView):
     serializer_class = serializers.CategorySerializer
 
     def get_queryset(self):
-        return Category.objects.select_related('board').filter(
-            board__participants__user=self.request.user, is_deleted=False,
+        return Category.objects.select_related("board").filter(
+            board__participants__user=self.request.user,
+            is_deleted=False,
         )
 
     def perform_destroy(self, instance):
@@ -80,12 +87,11 @@ class GoalListView(ListAPIView):
     search_fields = ["title", "description"]
 
     def get_queryset(self):
+        Goal.objects.filter(due_date__lt=timezone.now().date()).update(
+            status=Status.archived
+        )
 
-        Goal.objects.filter(
-            due_date__lt=timezone.now().date()
-        ).update(status=Status.archived)
-
-        goals = Goal.objects.select_related('category').filter(
+        goals = Goal.objects.select_related("category").filter(
             category__board__participants__user=self.request.user,
             status__lt=Status.archived,
         )
@@ -99,8 +105,8 @@ class GoalCreateView(CreateAPIView):
     serializer_class = serializers.GoalCreateSerializer
 
     def get_queryset(self):
-        return Goal.objects.select_related('category').filter(
-            category=self.request.data.get('category'),
+        return Goal.objects.select_related("category").filter(
+            category=self.request.data.get("category"),
             category__board__participants__user=self.request.user,
             category__is_deleted=False,
         )
@@ -113,7 +119,7 @@ class GoalUpdateRetrieveDeleteView(RetrieveUpdateDestroyAPIView):
     permission_classes = [IsAuthenticated, GoalPermission]
 
     def get_queryset(self):
-        return Goal.objects.select_related('category').filter(
+        return Goal.objects.select_related("category").filter(
             category__board__participants__user=self.request.user,
             status__lt=Status.archived,
         )
@@ -136,7 +142,7 @@ class CommentListView(ListAPIView):
     ordering = ["-created"]
 
     def get_queryset(self):
-        return Comment.objects.select_related('goal').filter(
+        return Comment.objects.select_related("goal").filter(
             goal=self.request.GET.get("goal"),
             goal__category__board__participants__user=self.request.user,
             goal__status__lt=Status.archived,
@@ -150,7 +156,7 @@ class CommentCreateView(CreateAPIView):
     serializer_class = serializers.CommentCreateSerializer
 
     def get_queryset(self):
-        return Comment.objects.select_related('goal').filter(
+        return Comment.objects.select_related("goal").filter(
             goal__category__board__participants__user=self.request.user,
             goal__status__lt=Status.archived,
         )
@@ -163,7 +169,7 @@ class CommentUpdateRetrieveDeleteView(RetrieveUpdateDestroyAPIView):
     permission_classes = [IsAuthenticated, CommentPermission]
 
     def get_queryset(self):
-        return Comment.objects.select_related('goal').filter(
+        return Comment.objects.select_related("goal").filter(
             goal__category__board__participants__user=self.request.user,
             goal__status__lt=Status.archived,
         )
@@ -171,6 +177,7 @@ class CommentUpdateRetrieveDeleteView(RetrieveUpdateDestroyAPIView):
 
 class BoardCreateView(CreateAPIView):
     """This view is used to create a new board"""
+
     queryset = Board.objects.all()
     permission_classes = [IsAuthenticated]
     serializer_class = serializers.BoardCreateSerializer
@@ -179,22 +186,22 @@ class BoardCreateView(CreateAPIView):
 class BoardListView(ListAPIView):
     """The BoardListView provides logic to display a list of all available
     boards"""
+
     serializer_class = serializers.BoardListSerializer
     permission_classes = [IsAuthenticated]
     filter_backends = [OrderingFilter]
-    ordering_fields = ['title']
-    ordering = ['title']
+    ordering_fields = ["title"]
+    ordering = ["title"]
 
     def get_queryset(self):
-
         return Board.objects.filter(
-            participants__user=self.request.user,
-            is_deleted=False
+            participants__user=self.request.user, is_deleted=False
         )
 
 
 class BoardUpdateRetrieveDeleteView(RetrieveUpdateDestroyAPIView):
     """This view is used to show, update and delete a single board"""
+
     serializer_class = serializers.BoardSerializer
     permission_classes = [IsAuthenticated, BoardPermission]
 
@@ -207,8 +214,7 @@ class BoardUpdateRetrieveDeleteView(RetrieveUpdateDestroyAPIView):
         with transaction.atomic():
             instance.is_deleted = True
             instance.categories.update(is_deleted=True)
-            Goal.objects.filter(category__board=instance).update(
-                status=Status.archived)
+            Goal.objects.filter(category__board=instance).update(status=Status.archived)
 
             instance.save()
 

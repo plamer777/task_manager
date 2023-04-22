@@ -27,6 +27,7 @@ class Priority(models.IntegerChoices):
 
 class Roles(models.IntegerChoices):
     """This class represents available roles for Participant models"""
+
     owner = 1, _("Owner")
     writer = 2, _("Writer")
     reader = 3, _("Reader")
@@ -62,13 +63,14 @@ class ModelDateMixin(models.Model):
 
 class Board(ModelDateMixin):
     """This class represents a board model"""
+
     title = models.CharField(
         max_length=50,
         verbose_name=_("Title"),
     )
 
     is_deleted = models.BooleanField(
-        verbose_name=_('Is deleted'),
+        verbose_name=_("Is deleted"),
         null=True,
         blank=True,
     )
@@ -83,6 +85,7 @@ class Board(ModelDateMixin):
 
 class Participant(ModelDateMixin):
     """This class represents a participant model"""
+
     role = models.SmallIntegerField(
         choices=Roles.choices,
         verbose_name=_("Role"),
@@ -93,20 +96,22 @@ class Participant(ModelDateMixin):
         User,
         on_delete=models.PROTECT,
         verbose_name=_("User"),
-        related_name='participants',
+        related_name="participants",
     )
 
     board = models.ForeignKey(
         Board,
         on_delete=models.PROTECT,
         verbose_name=_("Board"),
-        related_name='participants',
+        related_name="participants",
     )
+
+    editable_roles = Roles.choices[1:]
 
     class Meta:
         verbose_name = _("Participant")
         verbose_name_plural = _("Participants")
-        unique_together = ('board', 'user')
+        unique_together = ("board", "user")
 
     def __str__(self):
         return self.role
@@ -115,24 +120,18 @@ class Participant(ModelDateMixin):
 class Category(ModelDateMixin):
     """This class represents a category model"""
 
-    title = models.CharField(
-        max_length=50,
-        verbose_name=_("Category")
-    )
+    title = models.CharField(max_length=50, verbose_name=_("Category"))
     user = models.ForeignKey(
         User,
         on_delete=models.PROTECT,
         verbose_name=_("Author"),
     )
-    is_deleted = models.BooleanField(
-        default=False,
-        verbose_name=_("Deleted")
-    )
+    is_deleted = models.BooleanField(default=False, verbose_name=_("Deleted"))
     board = models.ForeignKey(
         Board,
         on_delete=models.PROTECT,
         verbose_name=_("Board"),
-        related_name='categories',
+        related_name="categories",
     )
 
     class Meta:
