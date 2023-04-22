@@ -101,8 +101,6 @@ class Participant(ModelDateMixin):
         on_delete=models.PROTECT,
         verbose_name=_("Board"),
         related_name='participants',
-        null=True,
-        blank=True,
     )
 
     class Meta:

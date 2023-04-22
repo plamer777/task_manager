@@ -172,6 +172,7 @@ class CommentUpdateRetrieveDeleteView(RetrieveUpdateDestroyAPIView):
 class BoardCreateView(CreateAPIView):
     """This view is used to create a new board"""
     queryset = Board.objects.all()
+    permission_classes = [IsAuthenticated]
     serializer_class = serializers.BoardCreateSerializer
 
 

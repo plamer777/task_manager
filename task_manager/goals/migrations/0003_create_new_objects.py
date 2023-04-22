@@ -11,11 +11,12 @@ def create_objects(apps, schema_editor):
     Participant = apps.get_model('goals', 'Participant')
 
     with transaction.atomic():
+        now_date = timezone.now().date()
         for user in User.objects.all():
             new_board = Board.objects.create(
                 title='My purposes',
-                created=timezone.now().date(),
-                updated=timezone.now().date(),
+                created=now_date,
+                updated=now_date,
                 is_deleted=False,
             )
 
@@ -23,8 +24,8 @@ def create_objects(apps, schema_editor):
                 board=new_board,
                 user=user,
                 role=1,
-                created=timezone.now().date(),
-                updated=timezone.now().date(),
+                created=now_date,
+                updated=now_date,
             )
 
             Category.objects.filter(

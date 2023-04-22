@@ -22,7 +22,7 @@ class ParticipantSerializer(serializers.ModelSerializer):
     )
 
     board = serializers.PrimaryKeyRelatedField(
-        required=False,
+        required=True,
         read_only=True,
     )
 
@@ -51,13 +51,14 @@ class BoardCreateSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data) -> Board:
         user = self.context.get('request').user
-        board = Board.objects.create(**validated_data)
-        board.is_deleted = False
-        board.save()
-        Participant.objects.create(
-            board=board,
-            user=user,
-        )
+        with transaction.atomic():
+            board = Board.objects.create(**validated_data)
+            board.is_deleted = False
+            board.save()
+            Participant.objects.create(
+                board=board,
+                user=user,
+            )
         return board
 
 
