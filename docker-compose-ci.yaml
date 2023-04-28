@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   front:
-    image: sermalenk/skypro-front:lesson-37
+    image: sermalenk/skypro-front:lesson-38
     depends_on:
       - api
     ports:
@@ -18,6 +18,19 @@ services:
     env_file: .env
     volumes:
       - static:/task_manager/static
+
+  bot:
+    build:
+      context: .
+    env_file:
+      - .env
+    depends_on:
+      db:
+        condition: service_healthy
+      migrations:
+        condition: service_completed_successfully
+    command: >
+      sh -c 'python3 manage.py runbot'
 
   migrations:
     image: $DOCKER_USERNAME/diploma:api-$GITHUB_RUN_ID
