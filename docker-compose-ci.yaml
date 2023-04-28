@@ -20,8 +20,7 @@ services:
       - static:/task_manager/static
 
   bot:
-    build:
-      context: .
+    image: $DOCKER_USERNAME/diploma:api-$GITHUB_RUN_ID
     env_file:
       - .env
     depends_on:
