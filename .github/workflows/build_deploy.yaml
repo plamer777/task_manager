@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - main
-      - develop38
 jobs:
   build_images:
     runs-on: ubuntu-latest

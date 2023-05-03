@@ -1,7 +1,6 @@
 """This file contains a TgClient class to manage telegram bot"""
 from string import ascii_lowercase, digits
 from random import choice
-import dotenv
 import requests
 from marshmallow_dataclass import class_schema
 from bot.models import TgUser
@@ -9,8 +8,6 @@ from bot.tg.bot_actions import BotActions
 from bot.tg.dc import GetUpdatesResponse, SendMessageResponse, Update
 
 # -------------------------------------------------------------------------
-
-dotenv.load_dotenv()
 
 
 class TgClient:
