@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - main
-      - develop37
 jobs:
   build_images:
     runs-on: ubuntu-latest
@@ -28,6 +27,7 @@ jobs:
     needs: build_images
     env:
       SECRET_KEY: ${{secrets.DJANGO_SECRET}}
+      TG_BOT_TOKEN: ${{secrets.TG_BOT_TOKEN}}
       DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
       POSTGRES_NAME: ${{secrets.POSTGRES_NAME}}
       POSTGRES_PASSWORD: ${{secrets.POSTGRES_PASSWORD}}

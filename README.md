@@ -6,6 +6,7 @@ You also can change your task's description, priority or status. All categories 
 any registered user. All users you share boards with have one of two available roles are reader and writer, all roles
 can be changed at any time.
 And as always every category task can be removed from list, they won't be deleted actually but marked as 'archival'.
+You also can manage your goals from telegram bot
 
 There are another functions cost to mention:
  - Registration and login by the username and password or through VK social network
@@ -17,6 +18,8 @@ There are another functions cost to mention:
  - Saving into CSV/JSON file
  - Creating, editing, removing and sorting comments for tasks
  - All functions also available in the mobile app
+ - Get list of goals by using telegram bot
+ - Create new goal or remove existing through telegram
 ---
 
 **Technologies used in the project:**
@@ -43,6 +46,7 @@ The project prepared for auto-deploying. So there two ways to start the project:
  - Prepare docker-compose.yaml file by using docker-compose.yaml or docker-compose-ci.yaml files included in the project
  - Start the app by using `sudo docker-compose up -d` command
  - Main page should be available by the ip 127.0.0.1 or localhost (if you user existing settings)
+ - Telegram bot will also be available by the link provided you by the FatherBot
 
 2. VPS deployment: 
  - Clone repository
@@ -51,6 +55,7 @@ The project prepared for auto-deploying. So there two ways to start the project:
  - Push project to your repository
  - The project should be deployed authentically if all variables are set correctly 
  - You can open main page by entering ip address of your server or domain used for it
+ - Telegram bot will also be available by the link provided you by the FatherBot
 ---
 Example of .env file:
 
@@ -62,7 +67,12 @@ Example of .env file:
     POSTGRES_HOST=db
     VK_APP_ID=YOUR_VK_APP_ID
     VK_SECRET_KEY=YOUR_VK_SECRET_KEY
+    TG_TOKEN=your_secret_telegram_bot_token
+    WEB_HOST=http://your_host
 
 To get VK_APP_ID and VK_SECRET_KEY you need to create a VK app. 
 I can recommend to use the official documentation: 
 https://dev.vk.com/mini-apps/getting-started
+
+
+The project was created by Alexey Mavrin in 28 April 2023

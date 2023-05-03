@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-21 15:57+0000\n"
+"POT-Creation-Date: 2023-04-28 12:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,7 +20,47 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: core/models.py:20 goals/models.py:95
+#: bot/models.py:9
+msgid "Added"
+msgstr "Добавлен"
+
+#: bot/models.py:10
+msgid "Confirmed"
+msgstr "Подтвержден"
+
+#: bot/models.py:11
+#, fuzzy
+#| msgid "Category"
+msgid "Wait Category"
+msgstr "Ожидание категории"
+
+#: bot/models.py:12
+#, fuzzy
+#| msgid "Title"
+msgid "Wait Title"
+msgstr "Ожидание заголовка"
+
+#: bot/models.py:15
+msgid "Telegram chat"
+msgstr "Чат телеграмм"
+
+#: bot/models.py:18 bot/models.py:38
+msgid "Telegram user"
+msgstr "Пользователь телеграмм"
+
+#: bot/models.py:23
+msgid "Bot State"
+msgstr "Состояние телеграмм бота"
+
+#: bot/models.py:32
+msgid "Verification code"
+msgstr "Код подтверждения"
+
+#: bot/models.py:39
+msgid "Telegram users"
+msgstr "Пользователи телеграмм"
+
+#: core/models.py:20 goals/models.py:98
 msgid "User"
 msgstr "Пользователь"
 
@@ -60,113 +100,113 @@ msgstr "Высокий"
 msgid "Critical"
 msgstr "Критический"
 
-#: goals/models.py:30
+#: goals/models.py:31
 msgid "Owner"
 msgstr "Владелец"
 
-#: goals/models.py:31
+#: goals/models.py:32
 msgid "Writer"
 msgstr "Редактор"
 
-#: goals/models.py:32
+#: goals/models.py:33
 msgid "Reader"
 msgstr "Читатель"
 
-#: goals/models.py:40
+#: goals/models.py:41
 msgid "Create date"
 msgstr "Дата создания"
 
-#: goals/models.py:46
+#: goals/models.py:47
 msgid "Last updated"
 msgstr "Дата обновления"
 
-#: goals/models.py:67 goals/models.py:182
+#: goals/models.py:69 goals/models.py:179
 msgid "Title"
 msgstr "Заголовок"
 
-#: goals/models.py:71
+#: goals/models.py:73
 #, fuzzy
 #| msgid "Deleted"
 msgid "Is deleted"
 msgstr "Удален"
 
-#: goals/models.py:77 goals/models.py:102 goals/models.py:136
+#: goals/models.py:79 goals/models.py:105 goals/models.py:133
 msgid "Board"
 msgstr "Доска"
 
-#: goals/models.py:78
+#: goals/models.py:80
 msgid "Boards"
 msgstr "Доски"
 
-#: goals/models.py:88
+#: goals/models.py:91
 msgid "Role"
 msgstr "Роль"
 
-#: goals/models.py:109
+#: goals/models.py:112
 msgid "Participant"
 msgstr "Участник"
 
-#: goals/models.py:110
+#: goals/models.py:113
 msgid "Participants"
 msgstr "Участники"
 
-#: goals/models.py:122 goals/models.py:141
+#: goals/models.py:123 goals/models.py:138
 msgid "Category"
 msgstr "Категория"
 
-#: goals/models.py:127 goals/models.py:178 goals/models.py:212
+#: goals/models.py:127 goals/models.py:175 goals/models.py:209
 msgid "Author"
 msgstr "Автор"
 
-#: goals/models.py:131
+#: goals/models.py:129
 msgid "Deleted"
 msgstr "Удален"
 
-#: goals/models.py:142
+#: goals/models.py:139
 msgid "Categories"
 msgstr "Категории"
 
-#: goals/models.py:154
+#: goals/models.py:151
 msgid "Goal category"
 msgstr "Категория цели"
 
-#: goals/models.py:158
+#: goals/models.py:155
 msgid "Due date"
 msgstr "Дедлайн"
 
-#: goals/models.py:165
+#: goals/models.py:162
 msgid "Status"
 msgstr "Статус"
 
-#: goals/models.py:171
+#: goals/models.py:168
 msgid "Priority"
 msgstr "Приоритет"
 
-#: goals/models.py:187
+#: goals/models.py:184
 msgid "Description"
 msgstr "Описание"
 
-#: goals/models.py:193 goals/models.py:206
+#: goals/models.py:190 goals/models.py:203
 msgid "Goal"
 msgstr "Цель"
 
-#: goals/models.py:194
+#: goals/models.py:191
 msgid "Goals"
 msgstr "Цели"
 
-#: goals/models.py:216
+#: goals/models.py:213
 msgid "Text"
 msgstr "Текст"
 
-#: goals/models.py:222
+#: goals/models.py:219
 msgid "Comment"
 msgstr "Комментарий"
 
-#: goals/models.py:223
+#: goals/models.py:220
 msgid "Comments"
 msgstr "Комментарии"
 
-#: goals/serializers/comment.py:48
+#: goals/serializers/comment.py:49
 msgid "You cannot leave a comment on a deleted goal"
 msgstr "Вы не можете оставить комментарий к удаленной цели"
 

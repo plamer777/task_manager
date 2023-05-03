@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   front:
-    image: sermalenk/skypro-front:lesson-37
+    image: sermalenk/skypro-front:lesson-38
     depends_on:
       - api
     ports:
@@ -18,9 +18,24 @@ services:
     depends_on:
       migrations:
         condition: service_completed_successfully
+      bot:
+        condition: service_started
     volumes:
       - ./task_manager/core:/task_manager/core
       - ./task_manager/task_manager:/task_manager/task_manager
+
+  bot:
+    build:
+      context: .
+    env_file:
+      - .env
+    depends_on:
+      db:
+        condition: service_healthy
+      migrations:
+        condition: service_completed_successfully
+    command: >
+      sh -c 'python3 manage.py runbot'        
 
   migrations:
     build:
