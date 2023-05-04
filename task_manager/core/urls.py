@@ -1,7 +1,5 @@
 """This file contains urls for core app"""
 from django.urls import path
-from rest_framework.templatetags.rest_framework import data
-
 from core import views
 
 # -----------------------------------------------------------------------

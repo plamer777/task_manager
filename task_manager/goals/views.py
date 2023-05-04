@@ -128,7 +128,7 @@ class GoalUpdateRetrieveDeleteView(RetrieveUpdateDestroyAPIView):
         with transaction.atomic():
             instance.status = Status.archived
             instance.save(update_fields=["status"])
-            instance.comment_set.delete()
+            instance.comment_set.all().delete()
         return instance
 
 

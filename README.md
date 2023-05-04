@@ -22,6 +22,8 @@ There are another functions cost to mention:
  - Create new goal or remove existing through telegram
 ---
 
+The application is covered by 88% tests in average 
+
 **Technologies used in the project:**
 
  - Python 3.10
@@ -34,10 +36,27 @@ There are another functions cost to mention:
  - Docker-compose
  - Social-auth-app-django 5.2.0
  - Django-filter 23.1
+ - Pytest-django 4.5.2
+ - Pytest-cov 4.0.0
+---
+
+**Project's structure:**
+
+ - .github - a github yaml file to automatically deploy the project
+ - deploy - nginx.conf file to configure frontend nginx server
+ - task_manager - a backend Django application including core, goals and telegram bot apps and tests
+ - .dockerignore - a docker file with files to exclude from container
+ - .env-ci - environment variables to configure application. The file should be prepared before run application
+ - .gitignore - a gitignore file with files to exclude from git repository
+ - Dockerfile - a file to build image of Django application
+ - docker-compose file - a dockerfile to start all containers locally
+ - docker-compose-ci file - a dockerfile to start all containers on server, file should be prepared
+ - poetry.lock and pyproject.toml files - poetry files containing all dependencies
+ - README.md - a README file with description of the project and instructions to run it 
 ---
 
 **How to start the project:**
-The project prepared for auto-deploying. So there two ways to start the project:
+The project prepared for auto-deploying. So there are two ways to start the project:
 
 1. Local deployment:
  - Clone repository
@@ -75,4 +94,4 @@ I can recommend to use the official documentation:
 https://dev.vk.com/mini-apps/getting-started
 
 
-The project was created by Alexey Mavrin in 28 April 2023
+The project was created by Alexey Mavrin in 28 April 2023, updated in 04 May 2023

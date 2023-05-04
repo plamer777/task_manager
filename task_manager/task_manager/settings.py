@@ -12,9 +12,13 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os
 from pathlib import Path
 
+import dotenv
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 LOCALE_PATHS = [os.path.join(BASE_DIR, "locale")]
+
+dotenv.load_dotenv()
 
 environment = os.environ
 # Quick-start development settings - unsuitable for production
@@ -83,10 +87,10 @@ WSGI_APPLICATION = "task_manager.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": environment.get("POSTGRES_DB"),
-        "PASSWORD": environment.get("POSTGRES_PASSWORD"),
-        "HOST": environment.get("POSTGRES_HOST"),
-        "USER": environment.get("POSTGRES_USER"),
+        "NAME": environment.get("POSTGRES_DB", 'postgres'),
+        "PASSWORD": environment.get("POSTGRES_PASSWORD", 'postgres'),
+        "HOST": environment.get("POSTGRES_HOST", 'localhost'),
+        "USER": environment.get("POSTGRES_USER", 'postgres'),
         "PORT": "5432",
     }
 }
