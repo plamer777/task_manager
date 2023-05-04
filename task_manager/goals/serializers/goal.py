@@ -3,7 +3,8 @@ serialize and deserialize db models"""
 from rest_framework import serializers
 from django.utils.translation import gettext_lazy as _
 from core.serializers import UserUpdateRetrieveSerializer
-from goals.models import Goal
+from goals.models import Goal, Category
+
 
 # -------------------------------------------------------------------------
 
@@ -35,7 +36,7 @@ class GoalCreateSerializer(serializers.ModelSerializer):
         fields = "__all__"
         read_only_fields = ("id", "created", "updated", "user")
 
-    def validate_category(self, value):
+    def validate_category(self, value: Category) -> Category:
         if value.is_deleted:
             raise serializers.ValidationError(
                 _("This action is not allowed for deleted categories")

@@ -1,6 +1,7 @@
 """This file contains classes to configure admin panel"""
 from django.contrib import admin
 from bot.models import TgUser
+
 # -------------------------------------------------------------------------
 
 

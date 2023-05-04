@@ -45,7 +45,7 @@ class BoardCreateSerializer(serializers.ModelSerializer):
             "updated",
         )
 
-    def create(self, validated_data) -> Board:
+    def create(self, validated_data: dict) -> Board:
         user = self.context.get("request").user
         with transaction.atomic():
             board = Board.objects.create(**validated_data)
@@ -73,7 +73,7 @@ class BoardSerializer(serializers.ModelSerializer):
             "updated",
         )
 
-    def update(self, instance: Board, validated_data) -> Board:
+    def update(self, instance: Board, validated_data: dict) -> Board:
         user = self.context.get("request").user
         new_participants = {
             participant["user"].id: participant

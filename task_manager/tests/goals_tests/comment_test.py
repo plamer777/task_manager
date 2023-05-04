@@ -1,5 +1,6 @@
 """This file contains functions to test comment's methods of the Django"""
 import pytest
+
 # --------------------------------------------------------------------------
 
 
@@ -9,11 +10,10 @@ def test_get_comment_list_not_authorized(client) -> None:
     authorized
     :param client: a test client
     """
-    response = client.get('/goals/goal_comment/list')
+    response = client.get("/goals/goal_comment/list")
 
     assert response.status_code == 403
-    assert response.json() == {
-        'detail': 'Учетные данные не были предоставлены.'}
+    assert response.json() == {"detail": "Учетные данные не были предоставлены."}
 
 
 def test_create_comment(client, create_comment) -> None:
@@ -27,11 +27,11 @@ def test_create_comment(client, create_comment) -> None:
     created = response.json()
     assert response.status_code == 201
     assert created == {
-        'id': created.get('id'),
-        'text': 'Test_text',
-        'created': created.get('created'),
-        'updated': created.get('updated'),
-        'goal': created.get('goal'),
+        "id": created.get("id"),
+        "text": "Test_text",
+        "created": created.get("created"),
+        "updated": created.get("updated"),
+        "goal": created.get("goal"),
     }
 
 
@@ -41,8 +41,8 @@ def test_get_comment_list(client, create_comment) -> None:
     :param create_comment: a fixture created new comment and provided
     response with result of the operation
     """
-    goal = create_comment.data.get('goal')
-    response = client.get(f'/goals/goal_comment/list?goal={goal}')
+    goal = create_comment.data.get("goal")
+    response = client.get(f"/goals/goal_comment/list?goal={goal}")
 
     assert response.status_code == 200
     assert len(response.json()) == 1
@@ -56,11 +56,11 @@ def test_get_single_comment(client, create_comment) -> None:
     response with result of the operation
     """
     comment_data = create_comment.data
-    pk = comment_data.get('id')
-    response = client.get(f'/goals/goal_comment/{pk}')
+    pk = comment_data.get("id")
+    response = client.get(f"/goals/goal_comment/{pk}")
 
     received = response.json()
-    received.pop('user')
+    received.pop("user")
     assert response.status_code == 200
     assert type(received) is dict
     assert received == comment_data
@@ -73,12 +73,12 @@ def test_delete_comment(client, create_comment) -> None:
     response with result of the operation
     """
     comment_data = create_comment.data
-    pk = comment_data.get('id')
+    pk = comment_data.get("id")
 
-    response = client.delete(f'/goals/goal_comment/{pk}')
+    response = client.delete(f"/goals/goal_comment/{pk}")
 
     assert response.status_code == 204
 
-    new_response = client.get(f'/goals/goal_comment/{pk}')
+    new_response = client.get(f"/goals/goal_comment/{pk}")
 
     assert new_response.status_code == 404

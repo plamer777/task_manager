@@ -2,6 +2,7 @@ from typing import Any
 import pytest
 from django.core.handlers.wsgi import WSGIRequest
 from core.models import User
+
 # --------------------------------------------------------------------------
 
 
@@ -13,10 +14,10 @@ def get_user_data() -> dict[str, str]:
     :return: a dictionary containing user data
     """
     user_data = {
-        'username': 'test_username',
-        'email': 'testemail@test.com',
-        'password': 'test_password',
-        'password_repeat': 'test_password',
+        "username": "test_username",
+        "email": "testemail@test.com",
+        "password": "test_password",
+        "password_repeat": "test_password",
     }
 
     return user_data
@@ -30,12 +31,11 @@ def updated_user_data(get_authorized_user) -> dict[str, Any]:
     :return: a dictionary containing user data
     """
     user_data = {
-        'id': get_authorized_user.id,
-        'username': get_authorized_user.username,
-        'first_name': 'Ivan',
-        'last_name': 'Pupkin',
-        'email': get_authorized_user.email,
-
+        "id": get_authorized_user.id,
+        "username": get_authorized_user.username,
+        "first_name": "Ivan",
+        "last_name": "Pupkin",
+        "email": get_authorized_user.email,
     }
 
     return user_data
@@ -51,14 +51,14 @@ def get_authorized_user(client, django_user_model) -> User:
     """
 
     user_data = {
-        'username': 'test_username',
-        'email': 'testemail@test.com',
-        'password': 'test_password',
+        "username": "test_username",
+        "email": "testemail@test.com",
+        "password": "test_password",
     }
 
     user = django_user_model.objects.create_user(**user_data)
 
-    client.post('/core/login', data=user_data, content_type='application/json')
+    client.post("/core/login", data=user_data, content_type="application/json")
 
     return user
 
@@ -73,11 +73,12 @@ def create_board(client, get_authorized_user) -> WSGIRequest:
     :return: WSGIResponse instance
     """
     board_data = {
-        'title': 'Test_Board',
+        "title": "Test_Board",
     }
 
-    response = client.post('/goals/board/create', data=board_data,
-                           content_type='application/json')
+    response = client.post(
+        "/goals/board/create", data=board_data, content_type="application/json"
+    )
 
     return response
 
@@ -92,12 +93,15 @@ def create_category(client, create_board) -> WSGIRequest:
     :return: WSGIResponse instance
     """
     category_data = {
-        'title': 'Test_Category',
-        'board': create_board.data.get('id'),
+        "title": "Test_Category",
+        "board": create_board.data.get("id"),
     }
 
-    response = client.post('/goals/goal_category/create', data=category_data,
-                           content_type='application/json')
+    response = client.post(
+        "/goals/goal_category/create",
+        data=category_data,
+        content_type="application/json",
+    )
 
     return response
 
@@ -113,12 +117,13 @@ def create_goal(client, create_category) -> WSGIRequest:
     :return: WSGIResponse instance
     """
     goal_data = {
-        'title': 'Test_Goal',
-        'category': create_category.data.get('id'),
+        "title": "Test_Goal",
+        "category": create_category.data.get("id"),
     }
 
-    response = client.post('/goals/goal/create', data=goal_data,
-                           content_type='application/json')
+    response = client.post(
+        "/goals/goal/create", data=goal_data, content_type="application/json"
+    )
 
     return response
 
@@ -134,11 +139,12 @@ def create_comment(client, create_goal) -> WSGIRequest:
     :return: WSGIResponse instance
     """
     comment_data = {
-        'text': 'Test_text',
-        'goal': create_goal.data.get('id'),
+        "text": "Test_text",
+        "goal": create_goal.data.get("id"),
     }
 
-    response = client.post('/goals/goal_comment/create', data=comment_data,
-                           content_type='application/json')
+    response = client.post(
+        "/goals/goal_comment/create", data=comment_data, content_type="application/json"
+    )
 
     return response

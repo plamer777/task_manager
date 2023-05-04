@@ -17,12 +17,12 @@ class UserRegisterSerializer(serializers.ModelSerializer):
         required=True, validators=[UniqueValidator(queryset=User.objects.all())]
     )
 
-    def create(self, validated_data) -> User:
+    def create(self, validated_data: dict) -> User:
         """This method allows to create a User with hashed password"""
         new_user = User.objects.create_user(**validated_data)
         return new_user
 
-    def validate(self, attrs):
+    def validate(self, attrs: dict) -> dict:
         """This method serves to validate the passwords and remove second
         password"""
         password = attrs.get("password")
@@ -84,13 +84,13 @@ class UserUpdatePasswordSerializer(serializers.ModelSerializer):
         model = User
         fields = ("new_password", "old_password", "password")
 
-    def update(self, instance, validated_data) -> User:
+    def update(self, instance: User, validated_data: dict) -> User:
         """This method allows to create a hashed password"""
         instance.set_password(validated_data.get("password"))
         instance.save()
         return instance
 
-    def validate(self, attrs):
+    def validate(self, attrs: dict) -> dict:
         """Validation process and removing excessive data"""
         new_password = attrs.pop("new_password", None)
         old_password = attrs.pop("old_password", None)

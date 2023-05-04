@@ -4,7 +4,7 @@ from django.db import migrations, models, transaction
 
 
 def set_defaults(apps, schema_editor):
-    TgUser = apps.get_model('bot', 'TgUser')
+    TgUser = apps.get_model("bot", "TgUser")
 
     with transaction.atomic():
         for tg_user in TgUser.objects.all():

@@ -1,6 +1,7 @@
 """This file contains permission classes to manage user access to data"""
 from rest_framework import permissions
-from goals.models import Participant, Roles, Category, Goal, Comment
+from goals.models import Participant, Roles, Category, Goal, Comment, Board
+
 
 # -------------------------------------------------------------------------
 
@@ -9,11 +10,9 @@ class BoardPermission(permissions.BasePermission):
     """The BoardPermission class serves to restrict access to board for users
     who absent in the participant list"""
 
-    def has_object_permission(self, request, view, obj):
-
+    def has_object_permission(self, request, view, obj: Board) -> bool:
         if request.method in permissions.SAFE_METHODS:
-            return Participant.objects.filter(
-                user=request.user, board=obj).exists()
+            return Participant.objects.filter(user=request.user, board=obj).exists()
         else:
             return Participant.objects.filter(
                 user=request.user, board=obj, role=Roles.owner
@@ -24,7 +23,7 @@ class CategoryPermission(permissions.BasePermission):
     """The CategoryPermission class serves to restrict access to category for
     users who are not a participant of the category's board"""
 
-    def has_object_permission(self, request, view, obj):
+    def has_object_permission(self, request, view, obj: Category) -> bool:
         if request.method in permissions.SAFE_METHODS:
             return (
                 Category.objects.select_related("board")
@@ -48,7 +47,7 @@ class CategoryCreatePermission(permissions.BasePermission):
     creation of a category for users who are not a participant of the
     category's board"""
 
-    def has_permission(self, request, view):
+    def has_permission(self, request, view) -> bool:
         board = request.data.get("board")
         return Participant.objects.filter(
             user=request.user, board=board, role__in=[Roles.owner, Roles.writer]
@@ -59,7 +58,7 @@ class GoalCreatePermission(permissions.BasePermission):
     """The GoalCreatePermission class serves to prevent the creation of a new
     goal for users who are not members of the board"""
 
-    def has_permission(self, request, view):
+    def has_permission(self, request, view) -> bool:
         category_id = request.data.get("category")
         category = Category.objects.get(id=category_id)
         return Participant.objects.filter(
@@ -73,7 +72,7 @@ class GoalPermission(permissions.BasePermission):
     """The GoalPermission class serves to prevent access to
     a goal for users who are not members of the board"""
 
-    def has_object_permission(self, request, view, obj):
+    def has_object_permission(self, request, view, obj: Goal) -> bool:
         if request.method in permissions.SAFE_METHODS:
             return (
                 Goal.objects.select_related("category")
@@ -99,7 +98,7 @@ class CommentCreatePermission(permissions.BasePermission):
     """The CommentCreatePermission class serves to prevent the creation of
     a new comment for users who are not members of the board"""
 
-    def has_permission(self, request, view):
+    def has_permission(self, request, view) -> bool:
         goal_id = request.data.get("goal")
         goal = Goal.objects.get(id=goal_id)
         return (
@@ -117,7 +116,7 @@ class CommentPermission(permissions.BasePermission):
     """The CommentPermission class serves to prevent the access to comments
     for users who are not members of the board"""
 
-    def has_object_permission(self, request, view, obj):
+    def has_object_permission(self, request, view, obj: Comment) -> bool:
         if request.method in permissions.SAFE_METHODS:
             return (
                 Comment.objects.select_related("goal")

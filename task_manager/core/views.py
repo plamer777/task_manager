@@ -71,18 +71,18 @@ class UserUpdateRetrieveView(RetrieveUpdateDestroyAPIView):
         return self.request.user
 
     @method_decorator(ensure_csrf_cookie)
-    def retrieve(self, request, *args, **kwargs):
+    def retrieve(self, request, *args, **kwargs) -> Response:
         return super().retrieve(request, *args, **kwargs)
 
     @method_decorator(ensure_csrf_cookie)
-    def update(self, request, *args, **kwargs):
+    def update(self, request, *args, **kwargs) -> Response:
         return super().update(request, *args, **kwargs)
 
     @method_decorator(ensure_csrf_cookie)
-    def partial_update(self, request, *args, **kwargs):
+    def partial_update(self, request, *args, **kwargs) -> Response:
         return super().partial_update(request, *args, **kwargs)
 
-    def destroy(self, request, *args, **kwargs):
+    def destroy(self, request, *args, **kwargs) -> JsonResponse:
         logout(request)
         return JsonResponse({"status": "success"}, status=204)
 
@@ -94,5 +94,5 @@ class UserUpdatePasswordView(UpdateAPIView):
     serializer_class = UserUpdatePasswordSerializer
     permission_classes = [IsAuthenticated]
 
-    def get_object(self):
+    def get_object(self) -> User:
         return self.request.user
