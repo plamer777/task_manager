@@ -1,0 +1,468 @@
+ERROR:root:There was an error: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}, 1: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}, 2: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}, 3: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}, 4: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}, 5: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+Traceback (most recent call last):
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 85, in start_bot
+    response = self.get_updates(offset=offset)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 57, in get_updates
+    result = updates_response_schema.load(response.json())
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow_dataclass/__init__.py", line 768, in load
+    all_loaded = super().load(data, many=many, **kwargs)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 722, in load
+    return self._do_load(
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 909, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}, 1: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}, 2: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}, 3: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}, 4: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}, 5: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+ERROR:root:There was an error: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+Traceback (most recent call last):
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 85, in start_bot
+    response = self.get_updates(offset=offset)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 57, in get_updates
+    result = updates_response_schema.load(response.json())
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow_dataclass/__init__.py", line 768, in load
+    all_loaded = super().load(data, many=many, **kwargs)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 722, in load
+    return self._do_load(
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 909, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+ERROR:root:There was an error: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+Traceback (most recent call last):
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 85, in start_bot
+    response = self.get_updates(offset=offset)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 57, in get_updates
+    result = updates_response_schema.load(response.json())
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow_dataclass/__init__.py", line 768, in load
+    all_loaded = super().load(data, many=many, **kwargs)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 722, in load
+    return self._do_load(
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 909, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+ERROR:root:There was an error: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+Traceback (most recent call last):
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 85, in start_bot
+    response = self.get_updates(offset=offset)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 57, in get_updates
+    result = updates_response_schema.load(response.json())
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow_dataclass/__init__.py", line 768, in load
+    all_loaded = super().load(data, many=many, **kwargs)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 722, in load
+    return self._do_load(
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 909, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+ERROR:root:There was an error: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+Traceback (most recent call last):
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 85, in start_bot
+    response = self.get_updates(offset=offset)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 57, in get_updates
+    result = updates_response_schema.load(response.json())
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow_dataclass/__init__.py", line 768, in load
+    all_loaded = super().load(data, many=many, **kwargs)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 722, in load
+    return self._do_load(
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 909, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+ERROR:root:There was an error: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+Traceback (most recent call last):
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 85, in start_bot
+    response = self.get_updates(offset=offset)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 57, in get_updates
+    result = updates_response_schema.load(response.json())
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow_dataclass/__init__.py", line 768, in load
+    all_loaded = super().load(data, many=many, **kwargs)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 722, in load
+    return self._do_load(
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 909, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+ERROR:root:There was an error: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+Traceback (most recent call last):
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 85, in start_bot
+    response = self.get_updates(offset=offset)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 57, in get_updates
+    result = updates_response_schema.load(response.json())
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow_dataclass/__init__.py", line 768, in load
+    all_loaded = super().load(data, many=many, **kwargs)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 722, in load
+    return self._do_load(
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 909, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+ERROR:root:There was an error: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+Traceback (most recent call last):
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 85, in start_bot
+    response = self.get_updates(offset=offset)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 57, in get_updates
+    result = updates_response_schema.load(response.json())
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow_dataclass/__init__.py", line 768, in load
+    all_loaded = super().load(data, many=many, **kwargs)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 722, in load
+    return self._do_load(
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 909, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+ERROR:root:There was an error: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+Traceback (most recent call last):
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 85, in start_bot
+    response = self.get_updates(offset=offset)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 57, in get_updates
+    result = updates_response_schema.load(response.json())
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow_dataclass/__init__.py", line 768, in load
+    all_loaded = super().load(data, many=many, **kwargs)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 722, in load
+    return self._do_load(
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 909, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+ERROR:root:There was an error: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+Traceback (most recent call last):
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 85, in start_bot
+    response = self.get_updates(offset=offset)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 57, in get_updates
+    result = updates_response_schema.load(response.json())
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow_dataclass/__init__.py", line 768, in load
+    all_loaded = super().load(data, many=many, **kwargs)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 722, in load
+    return self._do_load(
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 909, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+ERROR:root:There was an error: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+Traceback (most recent call last):
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 85, in start_bot
+    response = self.get_updates(offset=offset)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 57, in get_updates
+    result = updates_response_schema.load(response.json())
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow_dataclass/__init__.py", line 768, in load
+    all_loaded = super().load(data, many=many, **kwargs)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 722, in load
+    return self._do_load(
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 909, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+ERROR:root:There was an error: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+Traceback (most recent call last):
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 85, in start_bot
+    response = self.get_updates(offset=offset)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 57, in get_updates
+    result = updates_response_schema.load(response.json())
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow_dataclass/__init__.py", line 768, in load
+    all_loaded = super().load(data, many=many, **kwargs)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 722, in load
+    return self._do_load(
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 909, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+ERROR:root:There was an error: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+Traceback (most recent call last):
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 85, in start_bot
+    response = self.get_updates(offset=offset)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 57, in get_updates
+    result = updates_response_schema.load(response.json())
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow_dataclass/__init__.py", line 768, in load
+    all_loaded = super().load(data, many=many, **kwargs)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 722, in load
+    return self._do_load(
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 909, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+ERROR:root:There was an error: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+Traceback (most recent call last):
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 85, in start_bot
+    response = self.get_updates(offset=offset)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 57, in get_updates
+    result = updates_response_schema.load(response.json())
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow_dataclass/__init__.py", line 768, in load
+    all_loaded = super().load(data, many=many, **kwargs)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 722, in load
+    return self._do_load(
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 909, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+ERROR:root:There was an error: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+Traceback (most recent call last):
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 85, in start_bot
+    response = self.get_updates(offset=offset)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 57, in get_updates
+    result = updates_response_schema.load(response.json())
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow_dataclass/__init__.py", line 768, in load
+    all_loaded = super().load(data, many=many, **kwargs)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 722, in load
+    return self._do_load(
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 909, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+ERROR:root:There was an error: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+Traceback (most recent call last):
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 85, in start_bot
+    response = self.get_updates(offset=offset)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 57, in get_updates
+    result = updates_response_schema.load(response.json())
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow_dataclass/__init__.py", line 768, in load
+    all_loaded = super().load(data, many=many, **kwargs)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 722, in load
+    return self._do_load(
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 909, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+ERROR:root:There was an error: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+Traceback (most recent call last):
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 85, in start_bot
+    response = self.get_updates(offset=offset)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 57, in get_updates
+    result = updates_response_schema.load(response.json())
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow_dataclass/__init__.py", line 768, in load
+    all_loaded = super().load(data, many=many, **kwargs)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 722, in load
+    return self._do_load(
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 909, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+ERROR:root:There was an error: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+Traceback (most recent call last):
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 85, in start_bot
+    response = self.get_updates(offset=offset)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 57, in get_updates
+    result = updates_response_schema.load(response.json())
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow_dataclass/__init__.py", line 768, in load
+    all_loaded = super().load(data, many=many, **kwargs)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 722, in load
+    return self._do_load(
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 909, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+ERROR:root:There was an error: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+Traceback (most recent call last):
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 85, in start_bot
+    response = self.get_updates(offset=offset)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 57, in get_updates
+    result = updates_response_schema.load(response.json())
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow_dataclass/__init__.py", line 768, in load
+    all_loaded = super().load(data, many=many, **kwargs)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 722, in load
+    return self._do_load(
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 909, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+ERROR:root:There was an error: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}, 1: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}, 2: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}, 3: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}, 4: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}, 5: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+Traceback (most recent call last):
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 85, in start_bot
+    response = self.get_updates(offset=offset)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 57, in get_updates
+    result = updates_response_schema.load(response.json())
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow_dataclass/__init__.py", line 768, in load
+    all_loaded = super().load(data, many=many, **kwargs)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 722, in load
+    return self._do_load(
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 909, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}, 1: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}, 2: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}, 3: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}, 4: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}, 5: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+ERROR:root:There was an error: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+Traceback (most recent call last):
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 85, in start_bot
+    response = self.get_updates(offset=offset)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 57, in get_updates
+    result = updates_response_schema.load(response.json())
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow_dataclass/__init__.py", line 768, in load
+    all_loaded = super().load(data, many=many, **kwargs)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 722, in load
+    return self._do_load(
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 909, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+ERROR:root:There was an error: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+Traceback (most recent call last):
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 85, in start_bot
+    response = self.get_updates(offset=offset)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 57, in get_updates
+    result = updates_response_schema.load(response.json())
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow_dataclass/__init__.py", line 768, in load
+    all_loaded = super().load(data, many=many, **kwargs)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 722, in load
+    return self._do_load(
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 909, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+ERROR:root:There was an error: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+Traceback (most recent call last):
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 85, in start_bot
+    response = self.get_updates(offset=offset)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 57, in get_updates
+    result = updates_response_schema.load(response.json())
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow_dataclass/__init__.py", line 768, in load
+    all_loaded = super().load(data, many=many, **kwargs)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 722, in load
+    return self._do_load(
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 909, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+ERROR:root:There was an error: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+Traceback (most recent call last):
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 85, in start_bot
+    response = self.get_updates(offset=offset)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 57, in get_updates
+    result = updates_response_schema.load(response.json())
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow_dataclass/__init__.py", line 768, in load
+    all_loaded = super().load(data, many=many, **kwargs)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 722, in load
+    return self._do_load(
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 909, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+ERROR:root:There was an error: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+Traceback (most recent call last):
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 85, in start_bot
+    response = self.get_updates(offset=offset)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 57, in get_updates
+    result = updates_response_schema.load(response.json())
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow_dataclass/__init__.py", line 768, in load
+    all_loaded = super().load(data, many=many, **kwargs)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 722, in load
+    return self._do_load(
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 909, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+ERROR:root:There was an error: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+Traceback (most recent call last):
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 85, in start_bot
+    response = self.get_updates(offset=offset)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 57, in get_updates
+    result = updates_response_schema.load(response.json())
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow_dataclass/__init__.py", line 768, in load
+    all_loaded = super().load(data, many=many, **kwargs)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 722, in load
+    return self._do_load(
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 909, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+ERROR:root:There was an error: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+Traceback (most recent call last):
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 85, in start_bot
+    response = self.get_updates(offset=offset)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 57, in get_updates
+    result = updates_response_schema.load(response.json())
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow_dataclass/__init__.py", line 768, in load
+    all_loaded = super().load(data, many=many, **kwargs)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 722, in load
+    return self._do_load(
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 909, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+ERROR:root:There was an error: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+Traceback (most recent call last):
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 85, in start_bot
+    response = self.get_updates(offset=offset)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 57, in get_updates
+    result = updates_response_schema.load(response.json())
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow_dataclass/__init__.py", line 768, in load
+    all_loaded = super().load(data, many=many, **kwargs)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 722, in load
+    return self._do_load(
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 909, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+ERROR:root:There was an error: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+Traceback (most recent call last):
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 85, in start_bot
+    response = self.get_updates(offset=offset)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 57, in get_updates
+    result = updates_response_schema.load(response.json())
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow_dataclass/__init__.py", line 768, in load
+    all_loaded = super().load(data, many=many, **kwargs)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 722, in load
+    return self._do_load(
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 909, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+ERROR:root:There was an error: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+Traceback (most recent call last):
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 85, in start_bot
+    response = self.get_updates(offset=offset)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 57, in get_updates
+    result = updates_response_schema.load(response.json())
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow_dataclass/__init__.py", line 768, in load
+    all_loaded = super().load(data, many=many, **kwargs)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 722, in load
+    return self._do_load(
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 909, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+ERROR:root:There was an error: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+Traceback (most recent call last):
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 85, in start_bot
+    response = self.get_updates(offset=offset)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 57, in get_updates
+    result = updates_response_schema.load(response.json())
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow_dataclass/__init__.py", line 768, in load
+    all_loaded = super().load(data, many=many, **kwargs)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 722, in load
+    return self._do_load(
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 909, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+ERROR:root:There was an error: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+Traceback (most recent call last):
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 85, in start_bot
+    response = self.get_updates(offset=offset)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 57, in get_updates
+    result = updates_response_schema.load(response.json())
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow_dataclass/__init__.py", line 768, in load
+    all_loaded = super().load(data, many=many, **kwargs)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 722, in load
+    return self._do_load(
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 909, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+ERROR:root:There was an error: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+Traceback (most recent call last):
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 85, in start_bot
+    response = self.get_updates(offset=offset)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 57, in get_updates
+    result = updates_response_schema.load(response.json())
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow_dataclass/__init__.py", line 768, in load
+    all_loaded = super().load(data, many=many, **kwargs)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 722, in load
+    return self._do_load(
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 909, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+ERROR:root:There was an error: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+Traceback (most recent call last):
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 85, in start_bot
+    response = self.get_updates(offset=offset)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 57, in get_updates
+    result = updates_response_schema.load(response.json())
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow_dataclass/__init__.py", line 768, in load
+    all_loaded = super().load(data, many=many, **kwargs)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 722, in load
+    return self._do_load(
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 909, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+ERROR:root:There was an error: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+Traceback (most recent call last):
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 85, in start_bot
+    response = self.get_updates(offset=offset)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 57, in get_updates
+    result = updates_response_schema.load(response.json())
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow_dataclass/__init__.py", line 768, in load
+    all_loaded = super().load(data, many=many, **kwargs)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 722, in load
+    return self._do_load(
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 909, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+ERROR:root:There was an error: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}
+Traceback (most recent call last):
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 85, in start_bot
+    response = self.get_updates(offset=offset)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/task_manager/bot/tg/client.py", line 57, in get_updates
+    result = updates_response_schema.load(response.json())
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow_dataclass/__init__.py", line 768, in load
+    all_loaded = super().load(data, many=many, **kwargs)
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 722, in load
+    return self._do_load(
+  File "/home/plamer/PycharmProjects/CourceWorks/diploma/venv/lib/python3.10/site-packages/marshmallow/schema.py", line 909, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'result': {0: {'message': {'chat': {'last_name': ['Missing data for required field.']}}}}}

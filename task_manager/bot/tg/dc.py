@@ -13,8 +13,8 @@ class MessageFrom:
     """MessageFrom class represents a user sent a message"""
 
     id: int
-    first_name: str
-    username: str
+    first_name: str = ''
+    username: str = ''
     last_name: str = ""
 
     class Meta:
@@ -27,9 +27,9 @@ class Chat:
 
     id: int
     type: str
-    first_name: str
-    username: str
-    last_name: str
+    first_name: str = ''
+    username: str = ''
+    last_name: str = ''
 
     class Meta:
         unknown = EXCLUDE

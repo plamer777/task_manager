@@ -1,4 +1,5 @@
 """This file contains a TgClient class to manage telegram bot"""
+import logging
 from string import ascii_lowercase, digits
 from random import choice
 import requests
@@ -34,7 +35,8 @@ class TgClient:
         """
         return f"https://api.telegram.org/bot{self._token}/{method}"
 
-    def get_updates(self, offset: int = 0, timeout: int = 60) -> GetUpdatesResponse:
+    def get_updates(
+            self, offset: int = 0, timeout: int = 60) -> GetUpdatesResponse:
         """This method serves to send update request to telegram API,
         get response and return GetUpdatesResponse instance
         :param offset: An integer representing the offset to get certain
@@ -76,36 +78,44 @@ class TgClient:
     def start_bot(self) -> None:
         """This is a main method to start the telegram bot"""
         offset = 0
-
+        logging.basicConfig(filename='logs.txt', level=logging.INFO)
         while True:
-            response = self.get_updates(offset=offset)
-            new_code = self._generate_code()
-            for item in response.result:
-                offset = item.update_id + 1
-                print(item.message)
+            try:
+                response = self.get_updates(offset=offset)
+                new_code = self._generate_code()
+                print(response)
+                for item in response.result:
+                    offset = item.update_id + 1
+                    print(item.message)
 
-                username = item.message.from_.username
-                tg_user_queryset = TgUser.objects.filter(username=username)
-                tg_user = tg_user_queryset.first()
+                    username = item.message.from_.username
+                    tg_user_queryset = TgUser.objects.filter(username=username)
+                    tg_user = tg_user_queryset.first()
 
-                if not tg_user_queryset.exists():
-                    message = (
-                        f"Привет {item.message.from_.first_name}.\n"
-                        f"Ваш код верификации: {new_code}"
-                    )
-                    self._create_tg_user(item, new_code)
+                    if not tg_user_queryset.exists():
+                        message = (
+                            f"Привет {item.message.from_.first_name}.\n"
+                            f"Ваш код верификации: {new_code}"
+                        )
+                        self._create_tg_user(item, new_code)
 
-                elif tg_user.bot_state == TgUser.BotStates.added:
-                    message = self._bot_actions.confirm_user(item, new_code)
+                    elif tg_user.bot_state == TgUser.BotStates.added:
+                        message = self._bot_actions.confirm_user(
+                            item, new_code)
 
-                elif tg_user.bot_state == TgUser.BotStates.confirmed:
-                    message = self._get_confirmed_user_options(item, tg_user)
+                    elif tg_user.bot_state == TgUser.BotStates.confirmed:
+                        message = self._get_confirmed_user_options(
+                            item, tg_user)
 
-                else:
-                    message = self._get_state_options(item, tg_user)
+                    else:
+                        message = self._get_state_options(item, tg_user)
 
-                message_response = self.send_message(item.message.chat.id, message)
-                print(message_response)
+                    message_response = self.send_message(
+                        item.message.chat.id, message)
+                    print(message_response)
+
+            except Exception as e:
+                logging.exception(f'There was an error: {e}')
 
     @staticmethod
     def _generate_code() -> str:
