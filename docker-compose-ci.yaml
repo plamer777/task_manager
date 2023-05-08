@@ -30,6 +30,8 @@ services:
         condition: service_completed_successfully
     command: >
       sh -c 'python3 manage.py runbot'
+    volumes:
+      - ./logs.txt:/task_manager/logs.txt
 
   migrations:
     image: $DOCKER_USERNAME/diploma:api-$GITHUB_RUN_ID

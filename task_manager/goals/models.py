@@ -52,7 +52,7 @@ class ModelDateMixin(models.Model):
     class Meta:
         abstract = True
 
-    def save(self, *args, **kwargs):
+    def save(self, *args, **kwargs) -> None:
         """This method serves to set up create and update dates"""
         if not self.id:
             self.created = timezone.now().date()

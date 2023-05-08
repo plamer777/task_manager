@@ -3,7 +3,8 @@ deserialize db models"""
 from rest_framework import serializers
 from django.utils.translation import gettext_lazy as _
 from core.serializers import UserUpdateRetrieveSerializer
-from goals.models import Comment, Status
+from goals.models import Comment, Status, Goal
+
 
 # -------------------------------------------------------------------------
 
@@ -43,7 +44,7 @@ class CommentCreateSerializer(serializers.ModelSerializer):
             "updated",
         )
 
-    def validate_goal(self, value):
+    def validate_goal(self, value: Goal) -> Goal:
         if value.status == Status.archived:
             raise serializers.ValidationError(
                 _("You cannot leave a comment on a deleted goal")
