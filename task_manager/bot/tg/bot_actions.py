@@ -115,7 +115,8 @@ class BotActions:
         if not title:
             return "Название цели не может быть пустым"
 
-        category = Category.objects.get(title=self._user_category[tg_user.username])
+        category = Category.objects.get(
+            title=self._user_category[tg_user.username])
         new_goal = Goal.objects.create(
             title=title, user=tg_user.user, category=category
         )

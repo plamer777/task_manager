@@ -75,15 +75,12 @@ class TgClient:
         operation
         """
         response = self._get_response(
-            'sendMessage', chat_id=chat_id, message=message)
-
-        if not response.ok:
-            raise NotImplementedError
+            'sendMessage', chat_id=chat_id, text=message)
 
         message_response_schema = class_schema(SendMessageResponse)()
         try:
             return message_response_schema.load(response.json())
-        except  ValidationError as e:
+        except ValidationError as e:
             logging.exception(
                 f'There was an error during sending message: {e}')
         return SendMessageResponse(ok=False, message=None)
@@ -97,7 +94,8 @@ class TgClient:
         url = self.get_url(method)
         response = requests.get(url, params=params)
         if not response.ok:
-            raise NotImplementedError
+            raise ValueError('Status is not ok')
+
         return response
 
     def start_bot(self) -> None:
