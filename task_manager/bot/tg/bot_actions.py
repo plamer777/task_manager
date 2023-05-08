@@ -28,7 +28,8 @@ class BotActions:
             f"Введите на сайте следующий код: {new_code}"
         )
 
-        TgUser.objects.filter(username=update_obj.message.from_.username).update(
+        TgUser.objects.filter(
+            username=update_obj.message.from_.username).update(
             verification_code=new_code
         )
 
@@ -49,7 +50,8 @@ class BotActions:
             status__lt=Status.archived,
         )
 
-        goals_list = [f"{num}: {goal.title}" for num, goal in enumerate(goals, 1)]
+        goals_list = [
+            f"{num}: {goal.title}" for num, goal in enumerate(goals, 1)]
 
         return (
             "Список ваших целей:\n" + "\n".join(goals_list)
@@ -68,17 +70,19 @@ class BotActions:
             board__participants__user=tg_user.user,
             board__participants__role__in=[Roles.owner, Roles.writer],
         )
+        if not categories:
+            return "У вас нет категорий"
+
         tg_user.bot_state = TgUser.BotStates.wait_category
         tg_user.save()
 
         categories_list = [
-            f"{num}: {category.title}" for num, category in enumerate(categories, 1)
+            f"{num}: {category.title}"
+            for num, category in enumerate(categories, 1)
         ]
 
         return (
             "Введите название категории:\n" + "\n".join(categories_list)
-            if categories_list
-            else "У вас нет категорий"
         )
 
     def set_category(self, category: str, tg_user: TgUser) -> str:
@@ -155,3 +159,9 @@ class BotActions:
         self._user_category.pop(tg_user.username, None)
 
         return f"Запрос отменен успешно"
+
+    def get_removable_goals(self, tg_user: TgUser):
+        message = ("Введите имя цели:\n" + self.get_user_goals(tg_user))
+        tg_user.bot_state = TgUser.BotStates.remove_goal
+        tg_user.save()
+        return message

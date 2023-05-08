@@ -3,7 +3,7 @@ from django.db import transaction
 from rest_framework import generics
 from rest_framework.exceptions import ValidationError
 from rest_framework.permissions import IsAuthenticated
-from bot.management.commands.runbot import client
+from bot.tg import client
 from bot.models import TgUser
 from bot.serializers import BotUpdateSerializer
 
@@ -18,7 +18,8 @@ class BotConfirmView(generics.UpdateAPIView):
     lookup_field = "verification_code"
 
     def get_queryset(self):
-        self.kwargs["verification_code"] = self.request.data.get("verification_code")
+        self.kwargs["verification_code"] = self.request.data.get(
+            "verification_code")
         queryset = TgUser.objects.filter(
             verification_code=self.kwargs["verification_code"]
         )

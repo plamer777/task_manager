@@ -1,7 +1,7 @@
 """This file contains dataclasses representing different parts of telegram API
 response"""
 from dataclasses import field
-from typing import List
+from typing import List, Optional
 from marshmallow import EXCLUDE
 from marshmallow_dataclass import dataclass
 
@@ -77,7 +77,7 @@ class SendMessageResponse:
     from the telegram bot API"""
 
     ok: bool
-    result: Message
+    result: Optional[Message]
 
     class Meta:
         unknown = EXCLUDE

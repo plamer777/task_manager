@@ -21,7 +21,8 @@ class TgUser(models.Model):
     tg_id = models.IntegerField(verbose_name=_("Telegram chat"))
     username = models.CharField(verbose_name=_("Telegram user"), max_length=50)
     bot_state = models.PositiveSmallIntegerField(
-        choices=BotStates.choices, verbose_name=_("Bot State"), default=BotStates.added
+        choices=BotStates.choices, verbose_name=_("Bot State"),
+        default=BotStates.added
     )
     user = models.ForeignKey(User, on_delete=models.PROTECT, null=True)
     verification_code = models.CharField(

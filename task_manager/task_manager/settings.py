@@ -161,3 +161,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 AUTH_USER_MODEL = "core.User"
 APPEND_SLASH = False
 SOCIAL_AUTH_TRAILING_SLASH = False
+
+TG_TOKEN = environment.get('TG_TOKEN')
+
+LOG_FILE = 'logs.txt'

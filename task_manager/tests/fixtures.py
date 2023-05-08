@@ -144,7 +144,8 @@ def create_comment(client, create_goal) -> WSGIRequest:
     }
 
     response = client.post(
-        "/goals/goal_comment/create", data=comment_data, content_type="application/json"
+        "/goals/goal_comment/create", data=comment_data,
+        content_type="application/json"
     )
 
     return response

@@ -1,14 +1,8 @@
 """This file contains a Command class to execute a custom command"""
-import os
 from django.core.management import BaseCommand
-from bot.tg.client import TgClient
-from bot.tg.bot_actions import BotActions
+from bot.tg import client
 
 # -------------------------------------------------------------------------
-
-token = os.environ.get("TG_TOKEN")
-bot_actions = BotActions()
-client = TgClient(token, bot_actions)
 
 
 class Command(BaseCommand):
@@ -16,6 +10,11 @@ class Command(BaseCommand):
 
     help = "Starts a telegram bot"
 
+    def __init__(self, *args, **kwargs) -> None:
+        """Initialize the Command class"""
+        super().__init__(*args, **kwargs)
+        self.client = client
+
     def handle(self, *args, **options) -> None:
         """This method starts a telegram bot"""
-        client.start_bot()
+        self.client.start_bot()
